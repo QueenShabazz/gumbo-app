@@ -40,11 +40,10 @@ class App extends Component{
     console.log('recipe title change', e.target.value)
     this.setState({editRecipeTitle: e.target.value})
   }
+  
   onChangeRecipeIngredients(e){
     this.setState({editRecipeIngredients: e.target.value})
   }
-
-
 
   delRecipe (id, e) {
     // let history = useHistory();
@@ -82,19 +81,19 @@ class App extends Component{
   updateRecipe (id, e) {
     // let history = useHistory();
     console.log('target change', e, id)
-    console.log('props?', this.state.savedRecipes)
     const options = {
         method: 'PUT',
-        headers:{'Accept' : 'application/json',
-        'Access-Control-Allow-Origin':'*',
-        'Content-Type' : 'application/json'},
-        body: JSON.stringify({
+        headers:{
+            'Content-Type': 'application/json'
+          },
+            body: JSON.stringify({
             title: this.state.editRecipeTitle,
             ingredients: this.state.editRecipeIngredients
         })}
         const request = new Request ('http://localhost:8000/api/recipes/'+id, options)
         fetch(request)
         .then(response=>{
+          console.log('i got response')
             if (response.status != 200){
                 throw new Error('Did not update')
             }
@@ -105,11 +104,11 @@ class App extends Component{
             let index = arr.findIndex(item=>{
              return  item.id=== id
             })
-            console.log('updated index', index)
+            console.log('updated index', index, data)
              if(index !== -1){
-                arr[index].title = data.title
-                arr[index].ingredients = data.ingredients
-                this.setState({savedRecipes: arr})
+                // arr[index].title = data.title
+                // arr[index].ingredients = data.ingredients
+                // this.setState({savedRecipes: arr})
         }})
 
     }

@@ -4,7 +4,6 @@ class Recipes extends Component
 {
      addRecipe= (e) =>{
         e.preventDefault();
-        // console.log('clack')
         const headers = new Headers ();
         headers.append('Content-Type', 'application/json');
         const options = {
