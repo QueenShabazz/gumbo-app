@@ -20,7 +20,6 @@ table{
 
 #how-section{
   box-sizing: border-box;
-    /* margin: 10%; */
     display: flex; 
     flex-direction: column;
     align-items: center;
@@ -65,10 +64,7 @@ button:hover{
  }
 
 #how-section::after{
-    /* background-image: url('https://images.unsplash.com/photo-1546552916-985b466ffbec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');                                  */
-    /* display: block; */
     height: 100%;
-    /* position: absolute; */
     width: 100%;
     background-color: rgba(255, 255, 80, .9);
     content: "";
@@ -92,7 +88,6 @@ a{
 }
 
 header{
-    /* background-image:url('https://www.nappy.co/wp-content/uploads/2017/08/IMG_59663.jpg'); */
      font-size: 40px; 
      font-family: sans-serif;
      text-transform: uppercase;
@@ -126,13 +121,11 @@ button>img{
  }
 
  .regular-button{
-    /* border: 2px solid grey; */
     color: white;
     font-size: 20px;
     font-weight: 700;
     background: rgba(97, 30, 68, 0.76);
     padding: 39px;
-    /* align-content: center; */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -195,7 +188,6 @@ h2{
  }
  
 hr{
-    /* border: 1px solid lightgray; */
     width: 100vw;
     position: absolute;
     z-index: -100000000;

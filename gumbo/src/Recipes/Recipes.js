@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
+import config from '../config'
 
-class Recipes extends Component
-{
-     addRecipe= (e) =>{
+class Recipes extends Component {
+    addRecipe= (e) =>{ 
         e.preventDefault();
         const headers = new Headers ();
         headers.append('Content-Type', 'application/json');
@@ -16,13 +16,12 @@ class Recipes extends Component
                 recipeurl:this.props.recipe.href
             }),
         };
-        const request = new Request ('http://localhost:8000/api/recipes', options)
-        const response = fetch(request)
-        const status = response.status
+        const request = new Request (`${config.API_ENDPOINT}/recipes`, options)
+        //add error checking refer to signup.js
+        fetch(request)
+        .then(res=>res.json)
+        .then(data=>(data))
 
-        // if(status === 201){
-        //     this.fetchAll()
-        // }
     }
     render(){
        
@@ -40,7 +39,7 @@ class Recipes extends Component
                     </td>
                     <tr>                        
                     <button  onClick={this.addRecipe}>
-                    <img id="add "src="https://img.icons8.com/cute-clipart/64/000000/love-potion.png" />
+                    <img id="add" src="https://img.icons8.com/cute-clipart/64/000000/love-potion.png" />
                     </button>
                         
                     </tr>

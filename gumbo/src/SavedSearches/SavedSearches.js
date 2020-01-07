@@ -1,20 +1,24 @@
 import React, {Component} from 'react';
 import {withRouter} from "react-router-dom";
-import EditRecipe from "../EditRecipe/EditRecipe";
 import '../SavedSearches/SavedSearches.css';
 import {Link} from "react-router-dom";
 
- class SavedSearches extends Component{
-                          
+class SavedSearches extends Component{
     render() {
-        
         return (
-            <>
+        (!localStorage.getItem("authToken"))?(         
+            <div>
+                Login please
+            </div>
+        )
+                :
+                (
+                <div>
                 <section id="intro">
-                    <h2> Your Saved Searches & Recipe
-                    </h2>
-                    <p> See below for saved searches, or find the dish nearby
-                    </p>
+                <h2> Your Saved Searches & Recipe
+                </h2>
+                <p> See below for saved searches, or find the dish nearby
+                </p>
                 </section>
                 <div>
                     <table>
@@ -49,9 +53,10 @@ import {Link} from "react-router-dom";
                         </tbody>
                     </table>  
                 </div>
-            </>
+                </div>
+                )
         )
-    }
+    }     
 }
             
 export default withRouter(SavedSearches)

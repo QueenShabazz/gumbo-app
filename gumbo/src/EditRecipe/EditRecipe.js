@@ -2,24 +2,14 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router'
 
 class EditRecipe extends Component{
-    // constructor(props){
-    //     super(props)
-    //     this.state={
-    //         savedRecipes:[],
-                  
-    //     }
-
-    //     console.log('stateplz', this.state.savedRecipes)
-    //     }
-
         
         render() {
-            // console.log('editrecipe props',this.props.savedRecipes)
+
            if(this.props.savedRecipes !== null){
             let editId = this.props.match.params.id
-            let editItem = this.props.savedRecipes.filter(item=>{return item.id== editId})
-            // console.log('EDITPROPS', this.props.match.params.id, '\n', this.props.savedRecipes.filter(item=>{return item.id== editId}) )
-            // console.log('edit item', editItem[0].title)
+            let editItem = this.props.savedRecipes.filter(item=>{return item.id === editId})
+            ('EDIT', this.props.savedRecipes
+            )
             return (
                 <>
                     <section id="intro">

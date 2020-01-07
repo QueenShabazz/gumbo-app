@@ -2,7 +2,6 @@ import React from 'react';
 import "./Search.css"
 const Search = props => {
     
- console.log('SEARCHPROPS', props)
         return ( 
           <>
             <section id="howto">
@@ -33,10 +32,9 @@ const Search = props => {
                     <label>
                         <input  
                             className="flavor-profile" type="radio" name="flavor" value="sweet" onChange={()=>{props.setFlavor("")}}
-                        /> <p className="text"> I don't have a flavor preference, for now show me anything <div style={{fontSize: 40}}>❌</div>  </p>
+                        /> <p className="text"> I don't have a flavor preference, for now show me anything <div style={{fontSize: 40}}>❌</div> </p>
                         <br/>
                         <br/>
-                        {/* <h3> Ingredients You Have</h3> */}
                     </label>
                     
                     <label htmlFor="ingredients"> List up to 4 main ingredients: </label>

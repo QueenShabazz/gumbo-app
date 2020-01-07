@@ -57,7 +57,7 @@ renderNavBar ()  {
           
                 
         //   })
-        // console.log( 'info',jsonStr 
+        // ( 'info',jsonStr 
 		// )
 		
 		            // const recpieRow= 
@@ -70,9 +70,9 @@ renderNavBar ()  {
     // }
 
 
-                // console.log('recipe\'s length, as saved in state:', this.state.savedRecipes.length
+                // ('recipe\'s length, as saved in state:', this.state.savedRecipes.length
             // )
-        // this.state.savedRecipes.map((recipe)=> console.log('YASS', recipe[0])
+        // this.state.savedRecipes.map((recipe)=> ('YASS', recipe[0])
         // recipe.forEach(
         //     return (
         //     <table key={recipe.id}>
@@ -126,7 +126,7 @@ renderNavBar ()  {
         // </table> 
             
                       
-            // console.log('RECIPEFUNC', this.recipes())
+            // ('RECIPEFUNC', this.recipes())
             // this.recipes.bind(this)
                                     // headers,
                         // body: JSON.stringify({
@@ -142,7 +142,7 @@ renderNavBar ()  {
                       // let addRecipe = (e) =>
     // // {
     //     e.preventDefault();
-    //     console.log('clack')
+    //     ('clack')
         // const headers = new Headers ();
         // headers.append('Content-Type', 'application/json');
         // const options = {
@@ -163,7 +163,7 @@ renderNavBar ()  {
         //     this.fetchAll()
         // }
     // }
-                // console.log('REALTABLE',tables)
+                // ('REALTABLE',tables)
 
         // <Button  onClick={()=>  this.setState({savedRecipes: tables})}>
         // <img id="delete" src="https://img.icons8.com/bubbles/50/000000/delete-sign.png" />
@@ -196,7 +196,7 @@ renderNavBar ()  {
               // let addRecipe = (e) =>
     // // {
     //     e.preventDefault();
-    //     console.log('clack')
+    //     ('clack')
     //     const headers = new Headers ();
     //     headers.append('Content-Type', 'application/json');
     //     const options = {
@@ -219,11 +219,11 @@ renderNavBar ()  {
   
             // let delRecipe = (id) =>{   
 
-            //         console.log('ID', id)
+            //         ('ID', id)
 
                     // .then(response => response.json())
         // .then(data =>
-        //     console.log(data)
+        //     (data)
         // )
 
 
@@ -253,8 +253,8 @@ renderNavBar ()  {
                 //     savedRecipes: ""
                 // })
         // const recipesArr = Object.assign([], this.state.savedRecipes)
-        // console.log('recipes array', recipesArr)
-        // console.log('id', id)
+        // ('recipes array', recipesArr)
+        // ('id', id)
         // recipesArr.splice(0,1)
 
     //     this.setState({
@@ -265,10 +265,10 @@ renderNavBar ()  {
   //     fetch(`http://localhost:8000/recipes-api/${ingredients}/`)
   //     .then(response => response.json())
   //     .then(data => {
-  //       console.log('jsonData', data)
+  //       ('jsonData', data)
   //      const recipeRow=[]
   //       data.results.forEach((recipe)=> {
-  //         console.log('TEST', recipe.thumbnail)
+  //         ('TEST', recipe.thumbnail)
   //         const recipeRows=<Recipes recipe={recipe}
   //         />
   //         recipeRow.push(recipeRows)

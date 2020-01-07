@@ -1,10 +1,8 @@
 import React from 'react';
-import './SignUp.css'
 import {Link} from "react-router-dom";
 import config from '../config'
 
-
-class SignUp extends React.Component {
+class Login extends React.Component {
     constructor(props){
         super(props);
         this.state={
@@ -12,8 +10,8 @@ class SignUp extends React.Component {
             password:'',
             error: ''
         }
-        this.addUser=this.addUser.bind(this)
         this.handleChange=this.handleChange.bind(this)
+        this.login=this.login.bind(this)
     }
 
     handleChange = (e) =>{
@@ -22,7 +20,7 @@ class SignUp extends React.Component {
         })
     }
   
-    addUser= (e) =>{
+    login(e){
         e.preventDefault();
         if(this.state.email==='' || this.state.password===''){
             this.setState({error: "Please add password and email"})
@@ -34,11 +32,11 @@ class SignUp extends React.Component {
             method: 'POST',
             headers,
             body: JSON.stringify({
-                email: this.state.email,
+                email:this.state.email,
                 password: this.state.password,
             }),
         };
-        const request = new Request (`${config.API_ENDPOINT}/users`, options)
+        const request = new Request (`${config.API_ENDPOINT}/auth/login`, options)
         fetch(request)
         .then(res=>{
             if(!res.ok){
@@ -46,48 +44,44 @@ class SignUp extends React.Component {
             }
             return res.json()
         })
-        .then(data=>
-            this.props.history.push("/login")
-        )
-        .catch(err => {
+        .then(data => { 
+
+            localStorage.setItem("authToken", data.authToken)
+            this.props.history.push('/saved')
+         })
+         .catch(err => {
             if(err.status===400){
-                this.setState({error: "email already taken"})
+                this.setState({error: "Incorrect username or password"})
             }
             })
+
     }
-      
+
    render(){
     
+    
     return(
-
         <div>
-
             <section id="intro">
-                <h2> New To Gumbo?</h2>
-                <p> Take the quiz below to learn your flavor profile and sign up</p>
+                <h2> Member? Signin!</h2>
+               
             </section>
-            {
-                this.state.error !== "" && 
-                <section id='error'>
-                    {this.state.error}
-                </section>
-            }
-            <section id="signup">
-                <h2> Sign Up, Your Tastebuds Will Thank You</h2>
+            <section id="login">
+                <h2> Login, Your Tastebuds Will Thank You</h2>
                 <form> 
                     <label for="#text-area"> Email: </label>
                     <input id="text-area" type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
                     <label for="#text-area"> Password: </label>
                     <input id="text-area" type="password" name="password" onChange={this.handleChange} value={this.state.password}/>
-                    <button class="regular-button" type="submit" onClick={this.addUser}> Submit
+                    <button class="regular-button" type="submit" onClick={this.login}> Submit
                     </button>
                 </form>
                     
 
-            <h4> Already a Member? <Link to="/login"> Login</Link></h4>
+            <h4> Not a member yet? <Link>Sign Up</Link></h4>
             </section>
         </div> 
     );}
 }
                 
-export default SignUp
+export default Login
