@@ -59,6 +59,7 @@ class App extends Component{
         method: 'DELETE',
         headers:{
         'Accept' : 'application/json',
+        'Authorization': "bearer "  + localStorage.getItem("authToken"),
         'Access-Control-Allow-Origin':'*',
         'Content-Type' : 'application/json'}
     }

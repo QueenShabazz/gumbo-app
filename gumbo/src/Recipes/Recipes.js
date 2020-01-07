@@ -6,6 +6,7 @@ class Recipes extends Component {
         e.preventDefault();
         const headers = new Headers ();
         headers.append('Content-Type', 'application/json');
+        headers.append('Authorization',"bearer "  + localStorage.getItem("authToken"))
         const options = {
             method: 'POST',
             headers,
