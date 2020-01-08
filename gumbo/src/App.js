@@ -24,34 +24,22 @@ class App extends Component{
         password:'',
         savedRecipes:[],
         editRecipeTitle:'',
-        editRecipeIngredients:''
+        editRecipeIngredients:'',
+        error: ''
       }
 
       this.delRecipe=this.delRecipe.bind(this)
       this.onChangeRecipeTitle=this.onChangeRecipeTitle.bind(this)
       this.onChangeRecipeIngredients=this.onChangeRecipeIngredients.bind(this)
       this.updateRecipe=this.updateRecipe.bind(this)
-      this.login=this.login.bind(this)
-      this.updateSavedRecipeState=this.updateSavedRecipeState.bind(this)
   }
 
-  updateSavedRecipeState(savedRecipes){
-    this.setState({
-      savedRecipes
-    })
-  }
-  
   onChangeRecipeTitle(e){
     this.setState({editRecipeTitle: e.target.value})
   }
   
   onChangeRecipeIngredients(e){
     this.setState({editRecipeIngredients: e.target.value})
-  }
-
-  login(e){
-    e.preventDefault();
-
   }
 
   delRecipe (id, e) {
@@ -81,16 +69,17 @@ class App extends Component{
             
     }})
 }
-
-    
   // MAKE AJAX CALL 
 
     updateRecipe (id, e) {
     const options = {
         method: 'PUT',
         headers:{
-            'Content-Type': 'application/json'
-          },
+          'Accept' : 'application/json',
+          'Authorization': "bearer "  + localStorage.getItem("authToken"),
+          'Access-Control-Allow-Origin':'*',
+          'Content-Type': 'application/json'
+        },
             body: JSON.stringify({
             title: this.state.editRecipeTitle,
             ingredients: this.state.editRecipeIngredients
@@ -101,13 +90,20 @@ class App extends Component{
             if (response.status !== 200){
                 throw new Error('Did not update')
             }
+            return response.json()
         })
         .then(data=>{
-            let arr= [...this.state.savedRecipes]
+            let arr= this.state.savedRecipes
             let index = arr.findIndex(item=>{
-             return  item.id=== id
+             return  item.id === id
             })
+            console.log('update', arr[index])
         })
+        .catch(err => {
+          if(err.status===400){
+              this.setState({error: "Incorrect username or password"})
+          }
+          })
 
     }
 
@@ -180,8 +176,8 @@ class App extends Component{
       }})
       .then(response => response.json())
       .then(savedRecipes => {
-          this.updateSavedRecipeState(savedRecipes)
-          this.setState({savedRecipes:savedRecipes})
+          console.log('savedrecipes',savedRecipes)
+          this.setState({savedRecipes})
       }) 
     }
  //COMPONENTS

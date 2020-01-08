@@ -4,7 +4,7 @@ import {withRouter} from 'react-router'
 class EditRecipe extends Component{
         
         render() {
-
+            console.log('editrecipeprops',this.props)
            if(this.props.savedRecipes !== null){
             let editId = this.props.match.params.id
             let editItem = this.props.savedRecipes.filter(item=>{return item.id === editId})
