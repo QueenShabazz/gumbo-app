@@ -4,14 +4,15 @@ import {withRouter} from 'react-router'
 class EditRecipe extends Component{
         
         render() {
-            console.log('editrecipeprops',this.props)
-           if(this.props.savedRecipes !== null){
-            let editId = this.props.match.params.id
-            let editItem = this.props.savedRecipes.filter(item=>{return item.id === editId})
-            ('EDIT', this.props.savedRecipes
-            )
-            return (
-                <>
+            let savedRecipes = this.props.savedRecipes
+            let editId = parseInt(this.props.match.params.id)
+            let editItem = savedRecipes.filter(item=>{
+                    return item.id === editId
+                })
+                return (
+                    <>
+            {savedRecipes.length > 0 ?(
+               <>
                     <section id="intro">
                         <h2> Edit Recipe: {editItem[0].title}
                         </h2>
@@ -32,11 +33,14 @@ class EditRecipe extends Component{
 
                        </form>
                     </div>
+                    </>
+                    ) : (
+                        <div>Loading</div>
+                    )
+                
+                }
                 </>
             )
-            } else {
-                return (<div>Loading</div>)
-            }  
         }
         
 }

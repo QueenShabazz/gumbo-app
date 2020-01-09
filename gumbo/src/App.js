@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Route,Link, Switch} from "react-router-dom";
+import {Route,Link, Switch, withRouter} from "react-router-dom";
 import SignUp from "./SignUp/SignUp"
 import Login from "./Login/Login"
 import About from "./About/About"
@@ -9,6 +9,7 @@ import SavedSearches from './SavedSearches/SavedSearches';
 import Recipes from './Recipes/Recipes';
 import EditRecipe from './EditRecipe/EditRecipe'
 import config from './config'
+
 
 class App extends Component{
   constructor(props){
@@ -32,6 +33,7 @@ class App extends Component{
       this.onChangeRecipeTitle=this.onChangeRecipeTitle.bind(this)
       this.onChangeRecipeIngredients=this.onChangeRecipeIngredients.bind(this)
       this.updateRecipe=this.updateRecipe.bind(this)
+      this.Footer=this.Footer.bind(this)
   }
 
   onChangeRecipeTitle(e){
@@ -176,7 +178,7 @@ class App extends Component{
       }})
       .then(response => response.json())
       .then(savedRecipes => {
-          console.log('savedrecipes',savedRecipes)
+          console.log('savedrecipes in App.js',savedRecipes)
           this.setState({savedRecipes})
       }) 
     }
@@ -231,7 +233,10 @@ class App extends Component{
 
  
   Footer () {
-    if (window.location.pathname==='/signup' ||window.location.pathname==='/saved'||window.location.pathname==='/edit'||window.location.pathname==='/login'){
+    console.log('footer', this.props)
+    if (
+      this.props.location.pathname==='/signup' ||this.props.location.pathname==='/saved'||this.props.location.pathname.includes('/edit')||this.props.location.pathname==='/login'
+      ){
       return false
     }
     else return(
@@ -310,4 +315,4 @@ class App extends Component{
 }
 
 
-export default App;
+export default withRouter(App);
