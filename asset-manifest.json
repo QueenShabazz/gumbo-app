@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/gumbo-app/static/css/main.2545664f.chunk.css",
+    "main.js": "/gumbo-app/static/js/main.d1473ac2.chunk.js",
+    "main.js.map": "/gumbo-app/static/js/main.d1473ac2.chunk.js.map",
+    "runtime-main.js": "/gumbo-app/static/js/runtime-main.63711d3d.js",
+    "runtime-main.js.map": "/gumbo-app/static/js/runtime-main.63711d3d.js.map",
+    "static/js/2.1a322455.chunk.js": "/gumbo-app/static/js/2.1a322455.chunk.js",
+    "static/js/2.1a322455.chunk.js.map": "/gumbo-app/static/js/2.1a322455.chunk.js.map",
+    "index.html": "/gumbo-app/index.html",
+    "precache-manifest.58b776295438cddf9bd5f44a4a7a7931.js": "/gumbo-app/precache-manifest.58b776295438cddf9bd5f44a4a7a7931.js",
+    "service-worker.js": "/gumbo-app/service-worker.js",
+    "static/css/main.2545664f.chunk.css.map": "/gumbo-app/static/css/main.2545664f.chunk.css.map",
+    "static/js/2.1a322455.chunk.js.LICENSE": "/gumbo-app/static/js/2.1a322455.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.63711d3d.js",
+    "static/js/2.1a322455.chunk.js",
+    "static/css/main.2545664f.chunk.css",
+    "static/js/main.d1473ac2.chunk.js"
+  ]
+}
